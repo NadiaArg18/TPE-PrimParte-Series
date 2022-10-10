@@ -1,0 +1,70 @@
+<?php
+require_once "./Model/EpisodeModel.php";
+require_once "./Model/SeasonModel.php";
+require_once "./View/EpisodeView.php";
+require_once "./Model/UserModel.php";
+require_once "./Helpers/authHelper.php";
+
+class EpisodeController{
+
+    private $EpisodeModel;
+    private $SeasonModel;
+    private $EpisodeView;
+    private $UserModel;
+    private $authHelper;
+
+    function __construct(){
+        $this->EpisodeModel = new EpisodeModel();
+        $this->SeasonModel = new SeasonModel();
+        $this->EpisodeView = new EpisodeView();
+        $this->UserModel = new UserModel();
+        $this->authHelper = new AuthHelper();
+    }
+
+    function showHome(){
+        $episodes = $this->EpisodeModel->getEpisodes();
+        $seasons = $this->SeasonModel->getSeasons();
+        $users = $this->UserModel->getUsers();
+        $this->EpisodeView->showEpisodes($episodes, $seasons, $users);
+    }
+
+    function addEpisode(){
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        $this->EpisodeModel->addEpisode($_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
+        $this->EpisodeView->showHomeLocation();
+    }
+
+    function deleteEpisode($id){
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        $this->EpisodeModel->deleteEpisodeFromDB($id);
+        $this->EpisodeView->showHomeLocation();
+    }
+
+    function updateEpisode(){
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        $listEpisodes = $this->EpisodeModel->updateEpisodeFromDB($_POST['id'], $_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
+        $this->EpisodeView->showUpdateEpisode($listEpisodes);
+    }
+
+    function getEpisode($id){
+        session_start();
+        if (isset($_SESSION["Email"])){
+            $logeado = true;
+            $this->authHelper = new AuthHelper();
+            $this->authHelper->checkLoggedIn();
+            $episode = $this->EpisodeModel->showEpisode($id);
+            $this->EpisodeView->showEpisode($episode, $logeado);
+        } else{
+            $episode = $this->EpisodeModel->showEpisode($id);
+            $this->EpisodeView->showEpisode($id, $episode);
+        }
+    }
+
+    function showSeasonEp($season){
+        $seasonEpisode = $this->EpisodeModel->getEpisodesBySeason($season);
+        $this->EpisodeView->seasonEpisode($seasonEpisode);
+    }
+}
