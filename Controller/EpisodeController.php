@@ -50,17 +50,8 @@ class EpisodeController{
     }
 
     function getEpisode($id){
-        session_start();
-        if (isset($_SESSION["Email"])){
-            $logeado = true;
-            $this->authHelper = new AuthHelper();
-            $this->authHelper->checkLoggedIn();
             $episode = $this->EpisodeModel->showEpisode($id);
-            $this->EpisodeView->showEpisode($episode, $logeado);
-        } else{
-            $episode = $this->EpisodeModel->showEpisode($id);
-            $this->EpisodeView->showEpisode($id, $episode);
-        }
+            $this->EpisodeView->showEpisode($episode);
     }
 
     function showSeasonEp($season){

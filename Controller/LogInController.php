@@ -33,7 +33,7 @@ class LogInController{
             // Si el usuario existe y las contraseñas coinciden
             if ($user && password_verify($password, $user->Password)) {
                 session_start();
-                $_SESSION['User_ID'] = $user->id;
+                $_SESSION['USER_ID'] = $user->id;
                 $_SESSION["Email"] = $email->email;
                 $_SESSION["IS_LOGGED"] = true;
                 $this->view->showHome();
