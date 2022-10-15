@@ -31,6 +31,12 @@ class EpisodeModel{
         $sentence = $this->db->prepare("DELETE FROM episodios WHERE id = ?");
         $sentence->execute(array($id));
     }
+
+    function getEpisodeToEdit($id){
+        $sentence = $this->db->prepare("SELECT * FROM episodios WHERE id = ?");
+        $sentence->execute(array($id));
+        return $sentence->fetch(PDO::FETCH_OBJ);
+    }
     
     function updateEpisodeFromDB($id, $nameEpisode, $Director, $fk_id_Season, $Year){
         $sentence = $this->db->prepare("UPDATE episodios SET nameEpisode = ?, Director = ?, fk_id_Season = ?, Year = ? WHERE id = ?");

@@ -18,14 +18,13 @@
                 <li>
                     <a class="link" aria-current="page" href="">Home</a>
                 </li>
-                {if !isset($smarty.session.USER_ID)}
+                {if {$smarty.session.IS_LOGGED} == 1}
                     <li>
-                        <a class="link" aria-current="page" href="login">Login</a>
+                        <a class="link" aria-current="page" href="logout">Logout</a>
                     </li>
                 {else}
                     <li>
-                        <a class="link" aria-current="page" href="logout">({$smarty.session.Email})Logout
-                            </a>
+                        <a class="link" aria-current="page" href="login">Login</a>
                     </li>
                 {/if}
             </ul>

@@ -7,9 +7,6 @@ class LogInView{
 
     function __construct(){
         $this->smarty = new Smarty();
-        if(session_status() == PHP_SESSION_NONE){
-            session_start();
-        }
     }
 
     function showLogin($error = ""){ 

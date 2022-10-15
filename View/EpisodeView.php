@@ -21,8 +21,8 @@ class EpisodeView {
         $this->smarty->display('templates/showEpisode.tpl');
     }
 
-    function showUpdateEpisode(/*$seasons,*/ $listEpisodes){
-        //$this->smarty->assign('seasons', $seasons);
+    function showUpdateEpisode($seasons, $listEpisodes){
+        $this->smarty->assign('seasons', $seasons);
         $this->smarty->assign('listEpisodes', $listEpisodes);
         $this->smarty->display('templates/updateEpisode.tpl');
     }

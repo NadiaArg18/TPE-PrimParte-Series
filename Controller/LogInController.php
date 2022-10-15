@@ -33,9 +33,9 @@ class LogInController{
             // Si el usuario existe y las contraseñas coinciden
             if ($user && password_verify($password, $user->Password)) {
                 session_start();
-                $_SESSION['USER_ID'] = $user->id;
-                $_SESSION["Email"] = $email->email;
-                $_SESSION["IS_LOGGED"] = true;
+                //$_SESSION['USER_ID'] = $user->id;
+                //$_SESSION["Email"] = $email->email;
+                $_SESSION["IS_LOGGED"] = 1;
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");

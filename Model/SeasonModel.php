@@ -9,16 +9,16 @@ class SeasonModel{
     }
 
     function getSeasons(){    
-        $sentence = $this->db->prepare( "SELECT * FROM temporadas");
+        $sentence = $this->db->prepare("SELECT * FROM temporadas");
         $sentence->execute();
         $seasons = $sentence->fetchAll(PDO::FETCH_OBJ);
         return $seasons;        
     }
 
-    function getSeasonToEdit($id){
-        $sentencia = $this->db->prepare('SELECT * FROM temporadas  WHERE id_Season = ?');
-        $sentencia->execute(array($id));
-        $season = $sentencia->fetch(PDO::FETCH_OBJ);
+    function getSeasonToEdit($id_Season){
+        $sentence = $this->db->prepare("SELECT * FROM temporadas WHERE id_Season = ?");
+        $sentence->execute(array($id_Season));
+        $season = $sentence->fetch(PDO::FETCH_OBJ);
         return $season;
     }
 

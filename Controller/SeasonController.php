@@ -40,4 +40,11 @@ class SeasonController{
         $listSeasons = $this->model->getSeasonToEdit($id_Season);
         $this->view->showUpdateSeason($listSeasons);
     }
+
+    function updateSeasonFromDB(){
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        $this->model->updateSeasonFromDB($_POST['id_Season'], $_POST['numberSeason'], $_POST['Description']);
+        $this->view->showHomeLocation();
+    }
 }

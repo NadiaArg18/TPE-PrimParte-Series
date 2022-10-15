@@ -6,7 +6,6 @@ require_once "./Model/UserModel.php";
 require_once "./Helpers/authHelper.php";
 
 class EpisodeController{
-
     private $EpisodeModel;
     private $SeasonModel;
     private $EpisodeView;
@@ -42,16 +41,24 @@ class EpisodeController{
         $this->EpisodeView->showHomeLocation();
     }
 
-    function updateEpisode(){
+    function updateEpisode($id){
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
-        $listEpisodes = $this->EpisodeModel->updateEpisodeFromDB($_POST['id'], $_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
-        $this->EpisodeView->showUpdateEpisode($listEpisodes);
+        $seasons = $this->SeasonModel->getSeasons();
+        $listEpisodes = $this->EpisodeModel->getEpisodeToEdit($id[0]);
+        $this->EpisodeView->showUpdateEpisode($seasons, $listEpisodes);
+    }
+
+    function updateEpisodeFromDB(){
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        $this->EpisodeModel->updateEpisodeFromDB($_POST['id'], $_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
+        $this->EpisodeView->showHomeLocation();
     }
 
     function getEpisode($id){
-            $episode = $this->EpisodeModel->showEpisode($id);
-            $this->EpisodeView->showEpisode($episode);
+        $episode = $this->EpisodeModel->showEpisode($id);
+        $this->EpisodeView->showEpisode($episode);
     }
 
     function showSeasonEp($season){

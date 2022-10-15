@@ -8,8 +8,17 @@ class AuthHelper{
     function checkLoggedIn(){
         session_start();
         if (!isset($_SESSION["IS_LOGGED"])) {
-            header("Location: " . BASE_URL . "login");
-            die();
+            return false;
+        } else{
+            return true;
         }
     }
+
+    /*function isLogged(){
+        
+        if(!isset($_SESSION['IS_LOGGED'])){
+          header("Location: " . BASE_URL . "login");
+            die();
+        }
+    }*/
 }

@@ -43,7 +43,10 @@ switch ($params[0]) {
         $episodeController->deleteEpisode($params[1]);
         break;
     case 'updateEpisode':
-        $episodeController->updateEpisode();
+        $episodeController->updateEpisode($params[1]);
+        break;
+    case 'updateEpisodeFromDB':
+        $episodeController->updateEpisodeFromDB();
         break;
     case 'home':
         $seasonController->showHome();
@@ -59,6 +62,9 @@ switch ($params[0]) {
         break;
     case 'updateSeason':
         $seasonController->updateSeason($params[1]);
+        break;
+    case 'updateSeasonFromDB':
+        $seasonController->updateSeasonFromDB();
         break;
     default:
         echo ('404 page not found');
