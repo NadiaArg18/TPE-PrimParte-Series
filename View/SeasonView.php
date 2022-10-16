@@ -18,6 +18,10 @@ class SeasonView {
         $this->smarty->display('templates/updateSeason.tpl');
     }
 
+    function showError(){
+        $this->smarty->display('templates/showError.tpl');
+    }
+
     function showHomeLocation(){
         header("Location: " . BASE_URL . "home");
     }
