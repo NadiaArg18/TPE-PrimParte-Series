@@ -1,18 +1,15 @@
 <?php
 require_once "./Model/SeasonModel.php";
-require_once "./Model/EpisodeModel.php";
 require_once "./View/SeasonView.php";
 require_once "./Helpers/authHelper.php";
 
 class SeasonController{
     private $model;
-    private $EpisodeModel;
     private $view;
     private $authHelper;
 
     function __construct(){
         $this->model = new SeasonModel();
-        $this->EpisodeModel = new EpisodeModel();
         $this->view = new SeasonView();
         $this->authHelper = new AuthHelper();
     }
