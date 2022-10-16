@@ -11,7 +11,7 @@
             <option value="{$listSeasons->id_Season}">{$listSeasons->numberSeason}</option>
         {/foreach}
     </select>
-    <input type="text" placeholder="Año" name="Year" id="Year" value="{$listEpisodes->Year}" required>
+    <input type="text" placeholder="Año" name="premiereYear" id="premiereYear" value="{$listEpisodes->premiereYear}" required>
     <input type="submit" value="Modificar">
 </form>
 

@@ -20,7 +20,7 @@
                     <td><a href="getEpisode/{$listEpisodes->id}"> {$listEpisodes->nameEpisode}</a></td>
                     <td><a href="getEpisode/{$listEpisodes->id}"> {$listEpisodes->Director}</a></td>
                     <td><a href="getEpisode/{$listEpisodes->id}"> {$listEpisodes->fk_id_Season}</a></td>
-                    <td><a href="getEpisode/{$listEpisodes->id}"> {$listEpisodes->Year}</a></td>
+                    <td><a href="getEpisode/{$listEpisodes->id}"> {$listEpisodes->premiereYear}</a></td>
                     <td><a href="updateEpisode/{$listEpisodes->id}">Editar</a></td>
                     <td><a href="deleteEpisode/{$listEpisodes->id}">Eliminar</a></td>
                 </tr>
@@ -39,7 +39,7 @@
             {foreach from=$seasons item=$listSeasons}
                 <tr>
                     <td><a href="showSeasonEp/{$listSeasons->id_Season}"> {$listSeasons->numberSeason}</a></td>
-                    <td><a href="showSeasonEp/{$listSeasons->id_Season}"> {$listSeasons->Description}</a></td>
+                    <td><a href="showSeasonEp/{$listSeasons->id_Season}"> {$listSeasons->seasonDescrip}</a></td>
                     <td><a href="updateSeason/{$listSeasons->id_Season}">Editar</a></td>
                     <td><a href="deleteSeason/{$listSeasons->id_Season}">Eliminar</a></td>
                 </tr>

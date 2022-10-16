@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2022 a las 20:25:18
+-- Tiempo de generación: 16-10-2022 a las 03:29:47
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -32,14 +32,14 @@ CREATE TABLE `episodios` (
   `nameEpisode` varchar(200) NOT NULL,
   `Director` varchar(200) NOT NULL,
   `fk_id_Season` int(11) NOT NULL,
-  `Year` int(11) NOT NULL
+  `premiereYear` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `episodios`
 --
 
-INSERT INTO `episodios` (`id`, `nameEpisode`, `Director`, `fk_id_Season`, `Year`) VALUES
+INSERT INTO `episodios` (`id`, `nameEpisode`, `Director`, `fk_id_Season`, `premiereYear`) VALUES
 (1, 'Payback', 'Jean de Segonzac', 1, 1999),
 (4, 'Hysteria', 'Richard Dobbs', 1, 1999),
 (5, 'Russian Love Poem', 'Rick Rosenthal', 1, 2000),
@@ -67,14 +67,14 @@ INSERT INTO `episodios` (`id`, `nameEpisode`, `Director`, `fk_id_Season`, `Year`
 CREATE TABLE `temporadas` (
   `id_Season` int(11) NOT NULL,
   `numberSeason` varchar(200) NOT NULL,
-  `Description` varchar(200) NOT NULL
+  `seasonDescrip` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `temporadas`
 --
 
-INSERT INTO `temporadas` (`id_Season`, `numberSeason`, `Description`) VALUES
+INSERT INTO `temporadas` (`id_Season`, `numberSeason`, `seasonDescrip`) VALUES
 (1, 'Season 1', 'La 1ª temporada se estrenó en Estados Unidos el 20 de septiembre de 1999.\r\nCuenta con un total de 22 episodios.'),
 (2, 'Season 2', 'A partir de esta temporada la serie se centra más en la relación entre el detective Elliot Stabler y su compañera la detective Olivia Benson.\r\nTiene un total de 21 episodios.'),
 (3, 'Season 3', 'Esta temporada cuenta con 6 protagonista y mas de 10 guionistas y directores.'),
@@ -131,7 +131,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `episodios`
 --
 ALTER TABLE `episodios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `temporadas`

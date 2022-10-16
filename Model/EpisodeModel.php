@@ -22,9 +22,9 @@ class EpisodeModel{
         return $episode;
     }
 
-    function addEpisode($nameEpisode, $Director, $fk_id_Season, $Year){      
-        $sentence = $this->db->prepare("INSERT INTO episodios (nameEpisode, Director, fk_id_Season, Year) VALUES(?,?,?,?)");
-        $sentence->execute(array($nameEpisode, $Director, $fk_id_Season, $Year));              
+    function addEpisode($nameEpisode, $Director, $fk_id_Season, $premiereYear){      
+        $sentence = $this->db->prepare("INSERT INTO episodios (nameEpisode, Director, fk_id_Season, premiereYear) VALUES(?,?,?,?)");
+        $sentence->execute(array($nameEpisode, $Director, $fk_id_Season, $premiereYear));              
     }
     
     function deleteEpisodeFromDB($id){
@@ -38,9 +38,9 @@ class EpisodeModel{
         return $sentence->fetch(PDO::FETCH_OBJ);
     }
     
-    function updateEpisodeFromDB($id, $nameEpisode, $Director, $fk_id_Season, $Year){
-        $sentence = $this->db->prepare("UPDATE episodios SET nameEpisode = ?, Director = ?, fk_id_Season = ?, Year = ? WHERE id = ?");
-        $sentence->execute(array($nameEpisode, $Director, $fk_id_Season, $Year, $id));
+    function updateEpisodeFromDB($id, $nameEpisode, $Director, $fk_id_Season, $premiereYear){
+        $sentence = $this->db->prepare("UPDATE episodios SET nameEpisode = ?, Director = ?, fk_id_Season = ?, premiereYear = ? WHERE id = ?");
+        $sentence->execute(array($nameEpisode, $Director, $fk_id_Season, $premiereYear, $id));
     }
 
     function getEpisodesBySeason($season){

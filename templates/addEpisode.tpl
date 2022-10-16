@@ -8,6 +8,6 @@
                         <option value="{$listSeasons->id_Season}">{$listSeasons->numberSeason}</option>
                 {/foreach}
         </select>
-        <input type="text" placeholder="Año" name="Year" id="Year">
+        <input type="text" placeholder="Año" name="premiereYear" id="premiereYear">
         <input type="submit" value="Agregar">
 </form>

@@ -22,9 +22,9 @@ class SeasonModel{
         return $season;
     }
 
-    function addSeason($id_Season, $numberSeason, $Description){      
-        $sentence = $this->db->prepare("INSERT INTO temporadas (id_Season, numberSeason, Description) VALUES(?,?,?)");
-        $sentence->execute(array($id_Season, $numberSeason, $Description));              
+    function addSeason($id_Season, $numberSeason, $seasonDescrip){      
+        $sentence = $this->db->prepare("INSERT INTO temporadas (id_Season, numberSeason, seasonDescrip) VALUES(?,?,?)");
+        $sentence->execute(array($id_Season, $numberSeason, $seasonDescrip));              
     }
     
     function deleteSeasonFromDB($id){
@@ -32,8 +32,8 @@ class SeasonModel{
         $sentence->execute(array($id));
     }
 
-    function updateSeasonFromDB($id_Season, $numberSeason, $Description){
-        $sentence = $this->db->prepare("UPDATE temporadas SET numberSeason = ?, Description = ? WHERE id_Season = ?");
-        $sentence->execute(array($numberSeason, $Description, $id_Season));
+    function updateSeasonFromDB($id_Season, $numberSeason, $seasonDescrip){
+        $sentence = $this->db->prepare("UPDATE temporadas SET numberSeason = ?, seasonDescrip = ? WHERE id_Season = ?");
+        $sentence->execute(array($numberSeason, $seasonDescrip, $id_Season));
     }
 }

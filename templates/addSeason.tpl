@@ -2,6 +2,6 @@
 
 <form class="season"action="addSeason" method="POST">    
         <input type="text" placeholder="Temporada" name="numberSeason" id="numberSeason">
-        <textarea rows="5" cols="20" type="text" placeholder="Descripcion" name="Description"></textarea>
+        <textarea rows="5" cols="20" type="text" placeholder="Descripcion" name="seasonDescrip"></textarea>
         <input type="submit" value="Agregar">
 </form>

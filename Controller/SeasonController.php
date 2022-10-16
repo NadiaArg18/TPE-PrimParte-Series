@@ -23,7 +23,7 @@ class SeasonController{
     function addSeason(){
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
-        $this->model->addSeason($_POST['id_Season'], $_POST['numberSeason'], $_POST['Description']);
+        $this->model->addSeason($_POST['id_Season'], $_POST['numberSeason'], $_POST['seasonDescrip']);
         $this->view->showHomeLocation(); #esto nos redirige a la home para que no nos de una pag vacia
     }
 
@@ -44,7 +44,7 @@ class SeasonController{
     function updateSeasonFromDB(){
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
-        $this->model->updateSeasonFromDB($_POST['id_Season'], $_POST['numberSeason'], $_POST['Description']);
+        $this->model->updateSeasonFromDB($_POST['id_Season'], $_POST['numberSeason'], $_POST['seasonDescrip']);
         $this->view->showHomeLocation();
     }
 }

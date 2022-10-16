@@ -30,7 +30,7 @@ class EpisodeController{
     function addEpisode(){
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
-        $this->EpisodeModel->addEpisode($_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
+        $this->EpisodeModel->addEpisode($_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['premiereYear']);
         $this->EpisodeView->showHomeLocation();
     }
 
@@ -52,7 +52,7 @@ class EpisodeController{
     function updateEpisodeFromDB(){
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
-        $this->EpisodeModel->updateEpisodeFromDB($_POST['id'], $_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['Year']);
+        $this->EpisodeModel->updateEpisodeFromDB($_POST['id'], $_POST['nameEpisode'], $_POST['Director'], $_POST['fk_id_Season'], $_POST['premiereYear']);
         $this->EpisodeView->showHomeLocation();
     }
 
