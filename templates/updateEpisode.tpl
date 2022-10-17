@@ -15,6 +15,4 @@
     <input type="submit" value="Modificar">
 </form>
 
-<a href='home'> Volver </a>
-
 {include file='footer.tpl'}
