@@ -2,7 +2,7 @@
 
 <h3>Edite cualquier campo del formulario</h3>
 
-<form action="updateEpisode" method="POST">
+<form action="updateEpisodeFromDB" method="POST">
     <input type="number" name="id" id="id" value="{$listEpisodes->id}" class="hidden">
     <input type="text" placeholder="Nombre" name="nameEpisode" id="nameEpisode" value="{$listEpisodes->nameEpisode}" required>
     <input type="text" placeholder="Director" name="Director" id="Director" value="{$listEpisodes->Director}" required>

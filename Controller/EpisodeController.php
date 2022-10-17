@@ -45,7 +45,7 @@ class EpisodeController{
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLoggedIn();
         $seasons = $this->SeasonModel->getSeasons();
-        $listEpisodes = $this->EpisodeModel->getEpisodeToEdit($id[0]);
+        $listEpisodes = $this->EpisodeModel->getEpisodeToEdit($id);
         $this->EpisodeView->showUpdateEpisode($seasons, $listEpisodes);
     }
 

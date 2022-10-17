@@ -18,8 +18,8 @@ class SeasonModel{
     function getSeasonToEdit($id_Season){
         $sentence = $this->db->prepare("SELECT * FROM temporadas WHERE id_Season = ?");
         $sentence->execute(array($id_Season));
-        $season = $sentence->fetch(PDO::FETCH_OBJ);
-        return $season;
+        $listSeasons = $sentence->fetch(PDO::FETCH_OBJ);
+        return $listSeasons;
     }
 
     function addSeason($id_Season, $numberSeason, $seasonDescrip){      
